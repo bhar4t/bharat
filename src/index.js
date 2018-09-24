@@ -1,8 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import App from './pages/Home';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const startApp = () => {
+  ReactDOM.render(
+    (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={App} />
+        </Switch>
+      </Router>
+    ), document.getElementById('root'),
+  );
+};
+
+if (window.cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}
