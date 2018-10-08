@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import App from './pages/Home';
+import Home from './pages/Home';
+import './index.css';
 
 const startApp = () => {
   ReactDOM.render(
     (
       <Router>
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     ), document.getElementById('root'),
